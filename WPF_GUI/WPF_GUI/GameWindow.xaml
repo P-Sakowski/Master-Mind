@@ -1,0 +1,47 @@
+﻿<Window x:Class="WPF_GUI.GameWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_GUI"
+        mc:Ignorable="d"
+        Title="GameWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="118*"/>
+            <RowDefinition Height="301*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="131*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Button Content="Wyjdź do menu" HorizontalAlignment="Left" Margin="596,239,0,0" VerticalAlignment="Top" Width="180" Height="40" FontSize="20" Click="Button_Menu_Click" Cursor="Hand" Grid.Row="1"/>
+        <Label Content="Historia odpowiedzi" HorizontalAlignment="Left" Margin="501,10,0,0" VerticalAlignment="Top" Height="35" Width="218" FontSize="20" HorizontalContentAlignment="Center"/>
+        <ListView ItemsSource="{Binding game.AnswerList}" Name="listView" HorizontalAlignment="Center" Height="262" Margin="405,50,10,0" VerticalAlignment="Top" Width="371" Grid.RowSpan="2">
+            <ListView.View>
+                <GridView x:Name="AnswerGrid">
+                    <GridViewColumn Header="Nr" Width="25" DisplayMemberBinding="{Binding MoveNumber}"/>
+                    <GridViewColumn Header="Odpowiedź" Width="0" DisplayMemberBinding="{Binding AnswerArrayString}"/>
+                    <GridViewColumn Header="Odpowiedź" Width="0" DisplayMemberBinding="{Binding IntArrayString}"/>
+                    <GridViewColumn Header="Prawidłowe" Width="70" DisplayMemberBinding="{Binding GoodAnswers}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Label Name="MoveCounterLabel" Content="" HorizontalAlignment="Left" Margin="10,165,0,0" VerticalAlignment="Top" Width="379" FontSize="14" Grid.Row="1"/>
+        <ComboBox Name="cmbField1" HorizontalAlignment="Left" Margin="123,50,0,0" VerticalAlignment="Top" Width="266" Height="35"/>
+        <Label HorizontalAlignment="Left" Margin="31,50,0,0" VerticalAlignment="Top" Width="70" Height="35" Content="Pole nr 1" FontSize="14"/>
+        <ComboBox Name="cmbField2" HorizontalAlignment="Left" Margin="123,90,0,0" VerticalAlignment="Top" Width="266" Height="35" Grid.RowSpan="2"/>
+        <ComboBox Name="cmbField3" HorizontalAlignment="Left" Margin="123,10,0,0" VerticalAlignment="Top" Width="266" Height="35" Grid.Row="1"/>
+        <ComboBox Name="cmbField4" HorizontalAlignment="Left" Margin="123,50,0,0" VerticalAlignment="Top" Width="266" Height="35" Grid.Row="1"/>
+        <Label HorizontalAlignment="Left" Margin="31,90,0,0" VerticalAlignment="Top" Width="70" Height="35" Content="Pole nr 2" FontSize="14" Grid.RowSpan="2"/>
+        <Label HorizontalAlignment="Left" Margin="31,10,0,0" VerticalAlignment="Top" Width="70" Height="35" Content="Pole nr 3" FontSize="14" Grid.Row="1"/>
+        <Label HorizontalAlignment="Left" Margin="31,50,0,0" VerticalAlignment="Top" Width="70" Height="35" Content="Pole nr 4" FontSize="14" Grid.Row="1"/>
+        <Button Name ="CheckButton" Content="Sprawdź" HorizontalAlignment="Left" Height="40" Margin="157,239,0,0" Grid.Row="1" VerticalAlignment="Top" Width="182" FontSize="18" Click="Button_Check_Click"/>
+        <Label Name="Move" Content="" HorizontalAlignment="Left" Height="31" Margin="10,14,0,0" VerticalAlignment="Top" Width="225" FontSize="16"/>
+        <Label Name="Label5" HorizontalAlignment="Left" Margin="31,90,0,0" VerticalAlignment="Top" Width="70" Height="35" Content="Pole nr 5" FontSize="14" Grid.Row="1" Visibility="Hidden"/>
+        <Label Name="Label6" HorizontalAlignment="Left" Margin="31,125,0,0" VerticalAlignment="Top" Width="70" Height="35" Content="Pole nr 6" FontSize="14" Grid.Row="1" Visibility="Hidden"/>
+        <ComboBox x:Name="cmbField5" HorizontalAlignment="Left" Margin="123,90,0,0" VerticalAlignment="Top" Width="266" Height="35" Grid.Row="1" Visibility="Hidden"/>
+        <ComboBox x:Name="cmbField6" HorizontalAlignment="Left" Margin="123,125,0,0" VerticalAlignment="Top" Width="266" Height="35" Grid.Row="1" Visibility="Hidden" />
+        <Label Name="ScoreLabel" Content="" HorizontalAlignment="Left" Margin="31,199,0,0" VerticalAlignment="Top" Width="558" FontSize="14" Grid.Row="1"/>
+    </Grid>
+</Window>
